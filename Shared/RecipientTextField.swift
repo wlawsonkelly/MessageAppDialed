@@ -23,7 +23,6 @@ struct RecipientTextField: UIViewRepresentable {
         searchBar.setImage(UIImage(), for: .search, state: .normal)
         searchBar.backgroundColor = .clear
         searchBar.searchTextField.backgroundColor = .clear
-        searchBar.backgroundImage = UIImage()
         searchBar.searchTextField.allowsDeletingTokens = true
         searchBar.searchTextField.tokenBackgroundColor = UIColor(named: "dialed.button")
         searchBar.delegate = context.coordinator
@@ -67,7 +66,6 @@ struct RecipientTextField: UIViewRepresentable {
             text = searchText
             
             if lastTextCount != 1 && searchText.count == 0 {
-                print("removing last")
                 searchTokens.removeLast()
             }
             

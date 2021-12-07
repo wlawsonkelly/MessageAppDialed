@@ -16,8 +16,7 @@ struct SigninView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Heading
-                Image("logo")
+                Image(systemName: "message.fill")
                     .resizable()
                     .frame(width: 120, height: 120)
                     .aspectRatio(contentMode: .fit)

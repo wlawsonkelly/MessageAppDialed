@@ -13,11 +13,12 @@ struct InboxView: View {
 
     @State var otherUsername: String = ""
     @State var showChat: Bool = false
-    @State var showSearch: Bool = false
     
     @State var searchText: String = ""
     
     @State var showSheet: Bool = false
+    
+    @State var showCompose: Bool = false
     
     var conversations: [String] {
         if searchText.isEmpty {
@@ -83,10 +84,8 @@ struct InboxView: View {
             .navigationTitle("Inbox")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        ComposeMessageView()
-                            .environmentObject(appStateModel)
-                            .navigationBarTitleDisplayMode(.inline)
+                    Button {
+                        showCompose.toggle()
                     } label: {
                         Image(systemName: "square.and.pencil")
                     }
@@ -102,6 +101,10 @@ struct InboxView: View {
         }
         .fullScreenCover(isPresented: $appStateModel.showSignIn, content: {
             SigninView()
+        })
+        .fullScreenCover(isPresented: $showCompose, content: {
+            ComposeMessageView()
+                .environmentObject(appStateModel)
         })
         .onAppear {
             guard appStateModel.auth.currentUser != nil else { return

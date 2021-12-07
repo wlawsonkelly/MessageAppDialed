@@ -11,12 +11,18 @@ import SwiftUIX
 struct ChatInputView: View {
     @EnvironmentObject var appStateModel: AppStateModel
     @Binding var message: String
-    
+    @Binding var isSent: Bool
+
     var otherUsername: String
-    
-    init(otherUsername: String, message: Binding<String>) {
+        
+    init(
+        otherUsername: String,
+        message: Binding<String>,
+        isSent: Binding<Bool>
+    ) {
         self.otherUsername = otherUsername
         _message = message
+        _isSent = isSent
     }
     
     var body: some View {
@@ -37,7 +43,7 @@ struct ChatInputView: View {
                 appStateModel.otherUsername = otherUsername
                 appStateModel.sendMessage(text: message)
                 message = ""
-                print("sending")
+                isSent = true
             } label: {
                 Text("Send")
                     .foregroundColor(message.isEmpty ? .black : .white)
