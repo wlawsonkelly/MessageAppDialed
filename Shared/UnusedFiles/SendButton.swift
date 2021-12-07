@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SendButton: View {
-    @EnvironmentObject var appStateModel: AppStateModel
+    @EnvironmentObject var appStateModel: AppState
 
     @Binding var text: String
 

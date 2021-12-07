@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SigninView: View {
-    @EnvironmentObject var appStateModel: AppStateModel
+    @EnvironmentObject var appStateModel: AppState
 
     @State var username: String = ""
     @State var password: String = ""

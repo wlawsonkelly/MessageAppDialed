@@ -10,7 +10,7 @@ import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
 
-class AppStateModel: ObservableObject {
+class AppState: ObservableObject {
     @AppStorage("currentUsername") var currentUsername: String = ""
     @AppStorage("currentEmail") var currentEmail: String = ""
 
@@ -63,7 +63,7 @@ class AppStateModel: ObservableObject {
 }
 
 // Search
-extension AppStateModel {
+extension AppState {
     func searchUsers(queryText: String, completion: @escaping ([String]) -> Void) {
         database.collection("users").getDocuments { snapshot, error in
             guard let usernames = snapshot?.documents.compactMap({ $0.documentID }), error == nil
@@ -80,7 +80,7 @@ extension AppStateModel {
 }
 
 //Conversation
-extension AppStateModel {
+extension AppState {
     func getConversations() {
         //listen
         conversationListener = database
@@ -100,7 +100,7 @@ extension AppStateModel {
 }
 
 // get chat and send message
-extension AppStateModel {
+extension AppState {
     func observeChat() {
         createConversation()
 
@@ -170,21 +170,13 @@ extension AppStateModel {
     }
 
     func createConversation() {
-        database.collection("users")
-            .document(currentUsername.lowercased())
-            .collection("chats")
-            .document(otherUsername).setData(["created":"true"])
 
-        database.collection("users")
-            .document(otherUsername)
-            .collection("chats")
-            .document(currentUsername.lowercased()).setData(["created":"true"])
     }
 }
 
 
 // Sign In & Sign Up
-extension AppStateModel {
+extension AppState {
 
     func signIn(username: String, password: String) {
         database.collection("users").document(username.lowercased()).getDocument { [weak self] snapshot, error in

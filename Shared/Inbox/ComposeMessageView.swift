@@ -10,7 +10,7 @@ import SwiftUIX
 import UIKit
 
 struct ComposeMessageView: View {
-    @EnvironmentObject var appStateModel: AppStateModel
+    @EnvironmentObject var appStateModel: AppState
     
     @Environment(\.dismiss) var dismiss
     

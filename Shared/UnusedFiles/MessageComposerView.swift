@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MessageComposerView: View {
     
-    @EnvironmentObject var appStateModel: AppStateModel
+    @EnvironmentObject var appStateModel: AppState
     @State var message: String = ""
 
     var focusedField: FocusState<Field?>.Binding

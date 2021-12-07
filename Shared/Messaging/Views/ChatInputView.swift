@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftUIX
 
 struct ChatInputView: View {
-    @EnvironmentObject var appStateModel: AppStateModel
+    @EnvironmentObject var appStateModel: AppState
     @Binding var message: String
     @Binding var isSent: Bool
 
