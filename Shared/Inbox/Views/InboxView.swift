@@ -22,6 +22,8 @@ struct InboxView: View {
     
     @State var showCompose: Bool = false
     
+    @State var chatViewUsername: String = ""
+    
     var conversations: [String] {
         if searchText.isEmpty {
             return inboxViewModel.usernames
@@ -37,6 +39,7 @@ struct InboxView: View {
                     name in
                     Button {
                         otherUsername = name
+                        print(otherUsername, "this is it")
                         showSheet.toggle()
                     } label: {
                         HStack {
@@ -50,15 +53,6 @@ struct InboxView: View {
                             Spacer()
                         }
                         .padding()
-                    }
-                    .fullScreenCover(isPresented: $showSheet) {
-                        if let currentUsername = inboxViewModel.currentUsername {
-                            let messageViewModel = MessageViewModel(
-                                currentUsername: currentUsername,
-                                otherUsername: otherUsername
-                            )
-                            ChatView(messageViewModel: messageViewModel)
-                        }
                     }
                 }
                 .searchable(text: $searchText)
@@ -90,11 +84,23 @@ struct InboxView: View {
             )
                 .environmentObject(appStateModel)
         })
+        .fullScreenCover(isPresented: $showSheet) {
+            if let currentUsername = inboxViewModel.currentUsername,
+                let otherUsername = otherUsername {
+                let messageViewModel = MessageViewModel(
+                    currentUsername: currentUsername,
+                    otherUsername: otherUsername
+                )
+                ChatView(messageViewModel: messageViewModel)
+            }
+        }
         .onAppear {
             guard appStateModel.auth.currentUser != nil else { return
             }
         }
-
+        .onChange(of: otherUsername) { name in
+            self.otherUsername = name
+        }
     }
 
     func signOut() {

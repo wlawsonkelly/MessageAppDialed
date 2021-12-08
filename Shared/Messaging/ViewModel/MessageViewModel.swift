@@ -22,13 +22,13 @@ class MessageViewModel: ObservableObject {
         currentUsername: String,
         otherUsername: String
     ) {
+        print(otherUsername, " hey")
         self.currentUsername = currentUsername
         self.otherUsername = otherUsername
         self.messageRespository = FirebaseMessageRepository(
             currentUsername: currentUsername,
-            otherUsername: otherUsername
+            otherUsername: self.otherUsername
         )
-        print(otherUsername, " yes yes")
         observeMessages()
     }
     
