@@ -36,6 +36,7 @@ struct InboxView: View {
                 ForEach(conversations, id: \.self) {
                     name in
                     Button {
+                        otherUsername = name
                         showSheet.toggle()
                     } label: {
                         HStack {
@@ -54,7 +55,7 @@ struct InboxView: View {
                         if let currentUsername = inboxViewModel.currentUsername {
                             let messageViewModel = MessageViewModel(
                                 currentUsername: currentUsername,
-                                otherUsername: name
+                                otherUsername: otherUsername
                             )
                             ChatView(messageViewModel: messageViewModel)
                         }
