@@ -35,7 +35,6 @@ struct InboxView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 ForEach(conversations, id: \.self) {
                     name in
-                    
                     Button {
                         showSheet.toggle()
                     } label: {
@@ -53,7 +52,10 @@ struct InboxView: View {
                     }
                     .fullScreenCover(isPresented: $showSheet) {
                         if let currentUsername = inboxViewModel.currentUsername {
-                            let messageViewModel = MessageViewModel(currentUsername: currentUsername, otherUsername: name)
+                            let messageViewModel = MessageViewModel(
+                                currentUsername: currentUsername,
+                                otherUsername: name
+                            )
                             ChatView(messageViewModel: messageViewModel)
                         }
                     }
