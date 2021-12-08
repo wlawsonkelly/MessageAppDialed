@@ -15,8 +15,6 @@
 		083C7F3D275AC6DD00660AA5 /* MessageAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7F14275AC6DC00660AA5 /* MessageAppApp.swift */; };
 		083C7F40275AC6DD00660AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083C7F16275AC6DD00660AA5 /* Assets.xcassets */; };
 		083C7F41275AC6DD00660AA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083C7F16275AC6DD00660AA5 /* Assets.xcassets */; };
-		083C7F51275AC86600660AA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7F50275AC86600660AA5 /* ContentView.swift */; };
-		083C7F52275AC86600660AA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7F50275AC86600660AA5 /* ContentView.swift */; };
 		083C7F5C275AC8C200660AA5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7F5B275AC8C200660AA5 /* Extensions.swift */; };
 		083C7F5D275AC8C200660AA5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7F5B275AC8C200660AA5 /* Extensions.swift */; };
 		083C7F62275AC96000660AA5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 083C7F61275AC96000660AA5 /* GoogleService-Info.plist */; };
@@ -63,6 +61,8 @@
 		083C7FAE275AD53700660AA5 /* ComposeMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7F82275AD53600660AA5 /* ComposeMessageView.swift */; };
 		083C7FB0275EA06600660AA5 /* RecipientTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7FAF275EA06600660AA5 /* RecipientTextField.swift */; };
 		083C7FB1275EA06600660AA5 /* RecipientTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C7FAF275EA06600660AA5 /* RecipientTextField.swift */; };
+		083EA8D127603C84008D95B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA8D027603C84008D95B8 /* ContentView.swift */; };
+		083EA8D227603C84008D95B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083EA8D027603C84008D95B8 /* ContentView.swift */; };
 		0880D812275EF78400245AE7 /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880D811275EF78400245AE7 /* ChatInputView.swift */; };
 		0880D813275EF78400245AE7 /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880D811275EF78400245AE7 /* ChatInputView.swift */; };
 		0880D821275FE38000245AE7 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880D820275FE38000245AE7 /* MessageViewModel.swift */; };
@@ -114,7 +114,6 @@
 		083C7F34275AC6DD00660AA5 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		083C7F38275AC6DD00660AA5 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		083C7F3A275AC6DD00660AA5 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
-		083C7F50275AC86600660AA5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../TestMessaging/TestMessaging/ContentView.swift; sourceTree = "<group>"; };
 		083C7F5B275AC8C200660AA5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		083C7F61275AC96000660AA5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		083C7F7C275AD53600660AA5 /* MessageComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposerView.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		083C7F8B275AD53700660AA5 /* MessageRecipientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRecipientView.swift; sourceTree = "<group>"; };
 		083C7F8C275AD53700660AA5 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
 		083C7FAF275EA06600660AA5 /* RecipientTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientTextField.swift; sourceTree = "<group>"; };
+		083EA8D027603C84008D95B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0880D811275EF78400245AE7 /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		0880D820275FE38000245AE7 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		0880D825275FE4BC00245AE7 /* MessageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRepository.swift; sourceTree = "<group>"; };
@@ -204,13 +204,13 @@
 				083C7F83275AD53600660AA5 /* AppState.swift */,
 				083C7F16275AC6DD00660AA5 /* Assets.xcassets */,
 				0880D819275FDA1400245AE7 /* Auth */,
-				083C7F50275AC86600660AA5 /* ContentView.swift */,
 				083C7F5B275AC8C200660AA5 /* Extensions.swift */,
 				083C7F61275AC96000660AA5 /* GoogleService-Info.plist */,
 				0880D81A275FE2CA00245AE7 /* Inbox */,
 				083C7F14275AC6DC00660AA5 /* MessageAppApp.swift */,
 				0880D818275FD9F900245AE7 /* Messaging */,
 				0880D810275ED98500245AE7 /* UnusedFiles */,
+				083EA8D027603C84008D95B8 /* ContentView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -653,8 +653,8 @@
 				083C7F97275AD53700660AA5 /* ChatRowView.swift in Sources */,
 				083C7FA3275AD53700660AA5 /* MessagesViewModel.swift in Sources */,
 				083C7F5C275AC8C200660AA5 /* Extensions.swift in Sources */,
+				083EA8D127603C84008D95B8 /* ContentView.swift in Sources */,
 				0880D841276006BB00245AE7 /* InboxViewModel.swift in Sources */,
-				083C7F51275AC86600660AA5 /* ContentView.swift in Sources */,
 				083C7FA9275AD53700660AA5 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,8 +689,8 @@
 				083C7F98275AD53700660AA5 /* ChatRowView.swift in Sources */,
 				083C7FA4275AD53700660AA5 /* MessagesViewModel.swift in Sources */,
 				083C7F5D275AC8C200660AA5 /* Extensions.swift in Sources */,
+				083EA8D227603C84008D95B8 /* ContentView.swift in Sources */,
 				0880D842276006BB00245AE7 /* InboxViewModel.swift in Sources */,
-				083C7F52275AC86600660AA5 /* ContentView.swift in Sources */,
 				083C7FAA275AD53700660AA5 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
