@@ -49,7 +49,8 @@ struct ChatView: View {
                 ChatInputView(
                     otherUsername: messageViewModel.otherUsername,
                     message: $message,
-                    isSent: $shouldScroll
+                    isSent: $shouldScroll,
+                    messageViewModel: messageViewModel
                 )
                 .padding()
             }
@@ -60,7 +61,7 @@ struct ChatView: View {
                     }
                 }
             }
-            .onChange(of: shouldScroll) { newValue in
+            .onChange(of: shouldScroll) { _ in
                 if shouldScroll {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         withAnimation {

@@ -30,8 +30,6 @@ class AppState: ObservableObject {
     
     @Published var recipientField: String = ""
 
-    @Published var searchResults = [Contact]()
-
     var otherUsername: String = ""
 
     let database = Firestore.firestore()
@@ -198,8 +196,7 @@ extension AppState {
     func signUp(email: String, username: String, password: String) {
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard result != nil,
-                    error == nil,
-                    let uid = Auth.auth().currentUser?.uid
+                    error == nil
             else { return }
 
             let data = [

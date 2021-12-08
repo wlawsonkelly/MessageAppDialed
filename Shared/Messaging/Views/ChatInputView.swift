@@ -10,6 +10,9 @@ import SwiftUIX
 
 struct ChatInputView: View {
     @EnvironmentObject var appStateModel: AppState
+    
+    @ObservedObject var messageViewModel: MessageViewModel
+    
     @Binding var message: String
     @Binding var isSent: Bool
 
@@ -18,11 +21,13 @@ struct ChatInputView: View {
     init(
         otherUsername: String,
         message: Binding<String>,
-        isSent: Binding<Bool>
+        isSent: Binding<Bool>,
+        messageViewModel: MessageViewModel
     ) {
         self.otherUsername = otherUsername
         _message = message
         _isSent = isSent
+        self.messageViewModel = messageViewModel
     }
     
     var body: some View {
@@ -40,8 +45,8 @@ struct ChatInputView: View {
             .frame(height: 40)
             
             Button {
-                appStateModel.otherUsername = otherUsername
-                appStateModel.sendMessage(text: message)
+                messageViewModel.otherUsername = otherUsername
+                messageViewModel.sendMessage(text: message)
                 message = ""
                 isSent = true
             } label: {

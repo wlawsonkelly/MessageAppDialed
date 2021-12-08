@@ -10,9 +10,10 @@ import SwiftUIX
 import UIKit
 
 struct ComposeMessageView: View {
-    @EnvironmentObject var appStateModel: AppState
-    
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var appStateModel: AppState
+
+    @ObservedObject var inboxViewModel: InboxViewModel
     
     @State var recipient: String = ""
     @State var message: String = ""
@@ -22,13 +23,7 @@ struct ComposeMessageView: View {
     @State var searchTokens: [UISearchToken] = []
     
     @State var isSent: Bool = false
-    
-    private func sendMessage() {
-        guard !message.isEmpty else { return }
-        // appStateModel.sendMessage(text: message)
-        message = ""
-    }
-    
+        
     private func highlight(text: String) {
         guard text != "" else { return }
         let filtered = searchTokens.filter({$0.representedObject as! String == text })
@@ -118,9 +113,12 @@ struct ComposeMessageView: View {
             ChatInputView(
                 otherUsername: getOtherUsername(),
                 message: $message,
-                isSent: $isSent
+                isSent: $isSent,
+                messageViewModel: MessageViewModel(
+                    currentUsername: inboxViewModel.currentUsername,
+                    otherUsername: getOtherUsername()
+                )
             )
-                .environmentObject(appStateModel)
                 .padding()
         }
         .onChange(of: recipient) { text in
@@ -134,11 +132,14 @@ struct ComposeMessageView: View {
                 }
             }
         }
+        .onChange(of: isSent) { _ in
+            dismiss()
+        }
     }
 }
 
-struct ComposeMessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ComposeMessageView()
-    }
-}
+//struct ComposeMessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ComposeMessageView()
+//    }
+//}

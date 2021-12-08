@@ -1,5 +1,5 @@
 //
-//  Contact.swift
+//  User.swift
 //  TestMessaging
 //
 //  Created by Lawson Kelly  on 12/1/21.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Contact: Hashable {
+struct User: Hashable {
     let id = UUID()
-    var phoneNumber: String
-    var name: String
+    let email: String
+    let username: String
 }
