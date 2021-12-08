@@ -72,7 +72,7 @@ class FirebaseMessageRepository: MessageRepository {
     }
     
     private func observeChanges() {
-        print(otherUsername, " here it is")
+        guard otherUsername != "" else { return }
         chatListener = database
             .collection("users")
             .document(currentUsername.lowercased())

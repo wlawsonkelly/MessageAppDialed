@@ -27,16 +27,18 @@ class MessageViewModel: ObservableObject {
         self.otherUsername = otherUsername
         self.messageRespository = FirebaseMessageRepository(
             currentUsername: currentUsername,
-            otherUsername: self.otherUsername
+            otherUsername: otherUsername
         )
         observeMessages()
     }
     
     private func observeMessages() {
-        messageRespository?.messageModels.sink { messages in
-            self.messages = messages
+        if otherUsername != "" {
+            messageRespository?.messageModels.sink { messages in
+                self.messages = messages
+            }
+            .store(in: &cancleable)
         }
-        .store(in: &cancleable)
     }
     
     func sendMessage(text: String) {
